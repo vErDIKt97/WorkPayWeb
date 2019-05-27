@@ -6,16 +6,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Model {
-    private static Model instance = new Model();
+public class ModelUsers {
+    private static ModelUsers instance = new ModelUsers();
 
     private List<User> model;
 
-    public static Model getInstance() {
+    public static ModelUsers getInstance() {
         return instance;
     }
 
-    private Model() {
+    private ModelUsers() {
         model = new ArrayList<>();
     }
 
