@@ -16,10 +16,16 @@
 <section class="container">
     <div class="login">
         <h1>Войдите в свой личный кабинет</h1>
-        <form method="post" action="index.jsp">
+        <form method="post" action="/login">
             <p><input type="text" name="login" value="" placeholder="Логин"></p>
             <p><input type="password" name="password" value="" placeholder="Пароль"></p>
             <div class="Error">
+                <%
+
+                    String error =(String) request.getAttribute("error");
+                    if (!(error == null))
+                    out.print(error);
+                %>
             </div>
             <p class="remember_me">
                 <label>
@@ -27,7 +33,7 @@
                     Запомнить меня
                 </label>
             </p>
-            <p class="submit"><input onclick="location.href='/administrator'" type="submit" name="commit" value="Войти"></p>
+            <div><button onclick="location.href='/list'">Войти</button> </div>
         </form>
     </div>
 </section>

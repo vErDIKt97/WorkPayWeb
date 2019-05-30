@@ -13,7 +13,7 @@ import java.io.IOException;
 public class AddUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("views/mainAdministrator.jsp");
+        RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("views/add.jsp");
         requestDispatcher.forward(httpServletRequest,httpServletResponse);
     }
 

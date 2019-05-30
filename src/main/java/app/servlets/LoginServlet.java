@@ -13,24 +13,33 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("views/mainAdmin.jsp");
+        requestDispatcher.forward(httpServletRequest,httpServletResponse);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         String login = httpServletRequest.getParameter("login");
         String password = httpServletRequest.getParameter("password");
         User user = new User(login,password);
         if (!(user.getLogin().equals("")&&user.getPassword().equals(""))) {
             if (user.equals(ModelUsers.getInstance().getAdmin())) {
-                RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("/views/mainAdministrator.jsp");
+                RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("views/mainAdmin.jsp");
                 requestDispatcher.forward(httpServletRequest,httpServletResponse);
             } else {
                 if (ModelUsers.getInstance().getModel().contains(user)) {
                     RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("/views/userInfo.jsp") ;
                     requestDispatcher.forward(httpServletRequest,httpServletResponse);
-                } else httpServletRequest.setAttribute("error","Неверный логин или пароль");
+                } else {
+                    httpServletRequest.setAttribute("error", "Неверный логин или пароль");
+                    RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("/");
+                    requestDispatcher.forward(httpServletRequest,httpServletResponse);
+                }
             }
-        } else httpServletRequest.setAttribute("error","Заполните все поля");
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        super.doPost(httpServletRequest, httpServletResponse);
+        } else {
+            httpServletRequest.setAttribute("error","Заполните все поля");
+            RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("/");
+            requestDispatcher.forward(httpServletRequest,httpServletResponse);
+        }
     }
 }
