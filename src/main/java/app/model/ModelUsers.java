@@ -17,10 +17,19 @@ public class ModelUsers {
 
     private ModelUsers() {
         model = new ArrayList<>();
+        model.add(new User("admin","admin"));
     }
 
     public void add (User user) {
         model.add(user);
+    }
+
+    public User getAdmin () {
+        return this.model.get(0);
+    }
+
+    public List<User> getModel() {
+        return model;
     }
 
     public List<String> list (){

@@ -4,7 +4,7 @@
   <!-- add servlet -->
   <servlet>
     <servlet-name>AddServlet</servlet-name>
-    <servlet-class>app.servlets.AddServlet</servlet-class>
+    <servlet-class>app.servlets.AddUserServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
@@ -15,11 +15,22 @@
   <!-- list servlet -->
   <servlet>
     <servlet-name>ListServlet</servlet-name>
-    <servlet-class>app.servlets.ListServlet</servlet-class>
+    <servlet-class>app.servlets.ListUserServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
     <servlet-name>ListServlet</servlet-name>
     <url-pattern>/list</url-pattern>
+  </servlet-mapping>
+
+  <!-- login servlet -->
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>app.servlets.LoginServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/</url-pattern>
   </servlet-mapping>
 </web-app>

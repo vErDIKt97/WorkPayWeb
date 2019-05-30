@@ -10,22 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class AddServlet extends HttpServlet {
+public class AddUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("views/add.jsp");
+        RequestDispatcher requestDispatcher = httpServletRequest.getRequestDispatcher("views/mainAdministrator.jsp");
         requestDispatcher.forward(httpServletRequest,httpServletResponse);
     }
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-        String name = httpServletRequest.getParameter("name");
-        String password = httpServletRequest.getParameter("pass");
-        User user = new User(name,password);
+        String login = httpServletRequest.getParameter("login");
+        String password = httpServletRequest.getParameter("password");
+        User user = new User(login,password);
         ModelUsers modelUsers = ModelUsers.getInstance();
         modelUsers.add(user);
 
-        httpServletRequest.setAttribute("userName",name);
+        httpServletRequest.setAttribute("userName",login);
         doGet(httpServletRequest,httpServletResponse);
     }
 }
