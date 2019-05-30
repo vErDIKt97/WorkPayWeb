@@ -9,7 +9,8 @@
 <div class="w3-container w3-blue-grey w3-opacity w3-right-align">
     <h1>Super app!</h1>
 </div>
-
+<!--- Эдик тут надо чтобы при ошибке член рисовался
+ --->
 <div class="w3-container w3-padding">
     <%
         if (request.getAttribute("userName") != null) {

@@ -22,7 +22,7 @@
             if (names != null && !names.isEmpty()) {
                 out.println("<ul class=\"w3-ul\">");
                 for (String s : names) {
-                    out.println("<li class=\"w3-hover-sand\">" + s + "</li>");
+                    out.println("<li class=\"w3-hover-sand\">" + s +"</li>");
                 }
                 out.println("</ul>");
 
