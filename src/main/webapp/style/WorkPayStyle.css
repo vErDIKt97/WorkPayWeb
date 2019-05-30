@@ -32,6 +32,8 @@ body {
     background: #0ca3d2;
 }
 
+
+
 .container {
     margin: 80px auto;
     width: 640px;
@@ -214,4 +216,10 @@ input[type=submit]:active {
 .vladmaxi-top span.right a{
     float: left;
     display: block;
+}
+
+
+.Error {
+    color:red;
+    text-align: center;
 }
